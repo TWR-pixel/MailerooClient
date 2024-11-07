@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71A7B9E2-00EF-445F-8562-13CCCA6A637A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Verification", "Verification", "{E59757BB-6CF7-4954-9FA0-5FC1F084C804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailerooClient.Verification", "src\Verification\MailerooClient.Verification\MailerooClient.Verification.csproj", "{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1C87A879-8288-4F88-B5E6-719B47A18E27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{D0DE21E7-5009-4D09-A892-1A7AE3939581}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Verification", "Verification", "{FC2B8728-BF91-4A42-AE36-C6723DB15165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailerooClient.Tests.Unit.Verification", "src\Tests\Unit\Verification\MailerooClient.Tests.Unit.Verification\MailerooClient.Tests.Unit.Verification.csproj", "{66AB31C3-7331-4363-9BA8-60215D0D0124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66AB31C3-7331-4363-9BA8-60215D0D0124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66AB31C3-7331-4363-9BA8-60215D0D0124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66AB31C3-7331-4363-9BA8-60215D0D0124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66AB31C3-7331-4363-9BA8-60215D0D0124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E59757BB-6CF7-4954-9FA0-5FC1F084C804} = {71A7B9E2-00EF-445F-8562-13CCCA6A637A}
+		{44FA95FA-2F9D-4B80-B208-A1A3E6BAD832} = {E59757BB-6CF7-4954-9FA0-5FC1F084C804}
+		{1C87A879-8288-4F88-B5E6-719B47A18E27} = {71A7B9E2-00EF-445F-8562-13CCCA6A637A}
+		{D0DE21E7-5009-4D09-A892-1A7AE3939581} = {1C87A879-8288-4F88-B5E6-719B47A18E27}
+		{FC2B8728-BF91-4A42-AE36-C6723DB15165} = {D0DE21E7-5009-4D09-A892-1A7AE3939581}
+		{66AB31C3-7331-4363-9BA8-60215D0D0124} = {FC2B8728-BF91-4A42-AE36-C6723DB15165}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0E9A702-120A-47BD-AF75-51646671817B}
+	EndGlobalSection
+EndGlobal
