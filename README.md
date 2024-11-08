@@ -1,7 +1,5 @@
 # MailerooClient
 
-# MailerooClient
-
 ## Examples
 
 ```csharp
