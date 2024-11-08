@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 
 namespace MailerooClient.Email.Verification
 {
-    public class MailerooApiClient
+    public class MailerooApiClient : IDisposable, IAsyncDisposable
     {
+        #region Properties and fields
         protected HttpClient Client { get; private set; }
         protected MailerooClientOptions Options { get; private set; }
 
+        private bool disposedValue;
+        #endregion
 
+        #region Constructor
         public MailerooApiClient(MailerooClientOptions options, HttpClient? client = null)
         {
             Options = options ?? throw new ArgumentNullException(nameof(options));
+
 
             if (client != null)
             {
@@ -35,6 +40,9 @@ namespace MailerooClient.Email.Verification
 
         }
 
+        #endregion
+
+        #region Methods
         public async Task<TResponse> SendRequestAsync<TResponse>(RequestBase<TResponse> request,
                                                                  CancellationToken cancellationToken = default) where TResponse : class
         {
@@ -47,5 +55,17 @@ namespace MailerooClient.Email.Verification
 
             return response is null ? throw new NullReferenceException() : response;
         }
+
+        public void Dispose()
+        {
+            Client.Dispose();
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            await new ValueTask(Task.Run(() => Client.Dispose()));
+        }
+        #endregion
+
     }
 }

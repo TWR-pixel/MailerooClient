@@ -10,11 +10,14 @@ public class MailerooClientTests
     public async Task SendRequestTest()
     {
         var options = new MailerooClientOptions("<ENTER-YOUR-API-KEY-HERE>");
-        var mailerooClient = new MailerooApiClient(options);
+
+        await using var mailerooClient = new MailerooApiClient(options);
         var request = new CheckRequest("iewofiweiofj@mafial.ru");
 
         var resp = await mailerooClient.SendRequestAsync(request);
 
         Debug.WriteLine(resp);
+
     }
+
 }
