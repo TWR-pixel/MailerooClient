@@ -1,4 +1,4 @@
-﻿namespace MailerooClient.Verification
+﻿namespace MailerooClient.Email.Verification
 {
     public sealed class MailerooClientOptions
     {

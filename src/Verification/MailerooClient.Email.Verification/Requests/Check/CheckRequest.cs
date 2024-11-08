@@ -1,10 +1,10 @@
-﻿using MailerooClient.Verification.Requests.Abstractions;
+﻿using MailerooClient.Email.Verification.Requests.Abstractions;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MailerooClient.Verification.Requests.Check
+namespace MailerooClient.Email.Verification.Requests.Check
 {
     public sealed class CheckRequest : RequestBase<CheckResponse>
     {

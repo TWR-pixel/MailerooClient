@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text.Json.Serialization;
 
-namespace MailerooClient.Verification.Requests.Abstractions
+namespace MailerooClient.Email.Verification.Requests.Abstractions
 {
     public abstract class RequestBase<TResponse> where TResponse : class
     {

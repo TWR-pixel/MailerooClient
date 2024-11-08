@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MailerooClient.Verification.Requests.Check
+namespace MailerooClient.Email.Verification.Requests.Check
 {
     public sealed class CheckResponse
     {

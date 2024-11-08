@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<Title>MailerooClient.Email.Verification</Title>
+		<VersionPrefix>1.0.0.1</VersionPrefix>
+		<Authors>Arseniy</Authors>
+		<Copyright>Opensource</Copyright>
+		<PackageProjectUrl>https://github.com/TWR-pixel/MailerooClient.git</PackageProjectUrl>
+		<PackageIcon>124484326.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/TWR-pixel/MailerooClient.git</RepositoryUrl>
+		<PackageTags>Email, Verification, E-mail, Mail, SMTP, HTTP, REST, API</PackageTags>
+		<Description>Client for maileroo API, contains email verification, sending</Description>
+		<IncludeSymbols>False</IncludeSymbols>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\..\..\Downloads\124484326.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿using MailerooClient.Verification.Requests.Abstractions;
+﻿using MailerooClient.Email.Verification.Requests.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -6,30 +6,31 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MailerooClient.Verification
+namespace MailerooClient.Email.Verification
 {
-    public sealed class MailerooApiClient
+    public class MailerooApiClient
     {
-        private readonly HttpClient _client;
-        private readonly MailerooClientOptions _options;
+        protected HttpClient Client { get; private set; }
+        protected MailerooClientOptions Options { get; private set; }
+
 
         public MailerooApiClient(MailerooClientOptions options, HttpClient? client = null)
         {
-            _options = options ?? throw new ArgumentNullException(nameof(options));
+            Options = options ?? throw new ArgumentNullException(nameof(options));
 
             if (client != null)
             {
-                _client = client;
+                Client = client;
 
                 if (!client.DefaultRequestHeaders.Contains("X-API-KEY"))
                     throw new KeyNotFoundException("X-API-KEY not found or it is empty");
 
-                _client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
+                Client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
             }
             else
             {
-                _client = new HttpClient();
-                _client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
+                Client = new HttpClient();
+                Client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
             }
 
         }
@@ -39,8 +40,8 @@ namespace MailerooClient.Verification
         {
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            var requestUri = $"{_options.BaseUrl}/{request.MethodName}";
-            var httpResponse = await _client.PostAsync(requestUri, request.ToHttpContent(), cancellationToken);
+            var requestUri = $"{Options.BaseUrl}/{request.MethodName}";
+            var httpResponse = await Client.PostAsync(requestUri, request.ToHttpContent(), cancellationToken);
 
             var response = JsonSerializer.Deserialize<TResponse>(await httpResponse.Content.ReadAsStreamAsync());
 

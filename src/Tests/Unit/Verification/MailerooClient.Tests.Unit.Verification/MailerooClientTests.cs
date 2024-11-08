@@ -1,9 +1,6 @@
-﻿using MailerooClient.Verification;
-using MailerooClient.Verification.Requests.Check;
+﻿using MailerooClient.Email.Verification;
+using MailerooClient.Email.Verification.Requests.Check;
 using System.Diagnostics;
-using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace MailerooClient.Tests.Unit.Verification;
 
