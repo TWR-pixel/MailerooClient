@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace MailerooClient.Email.Verification.Requests.Check
 {
-    public sealed class CheckRequest : RequestBase<CheckResponse>
+    public sealed class CheckRequest : VerifyRequestBase<CheckResponse>
     {
         public CheckRequest(string email) : base("check", HttpMethod.Post)
         {

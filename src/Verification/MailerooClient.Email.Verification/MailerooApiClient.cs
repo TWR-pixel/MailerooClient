@@ -1,6 +1,8 @@
-﻿using MailerooClient.Email.Verification.Requests.Abstractions;
+﻿using MailerooClient.Email.Verification.Exceptions;
+using MailerooClient.Email.Verification.Requests.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
@@ -11,10 +13,10 @@ namespace MailerooClient.Email.Verification
     public class MailerooApiClient : IDisposable, IAsyncDisposable
     {
         #region Properties and fields
+        public HttpStatusCode StatusCode { get; private set; }
+
         protected HttpClient Client { get; private set; }
         protected MailerooClientOptions Options { get; private set; }
-
-        private bool disposedValue;
         #endregion
 
         #region Constructor
@@ -22,20 +24,19 @@ namespace MailerooClient.Email.Verification
         {
             Options = options ?? throw new ArgumentNullException(nameof(options));
 
-
             if (client != null)
             {
                 Client = client;
 
                 if (!client.DefaultRequestHeaders.Contains("X-API-KEY"))
-                    throw new KeyNotFoundException("X-API-KEY not found or it is empty");
+                    throw new XApiKeyHeaderNotFountException();
 
-                Client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
+                Client.DefaultRequestHeaders.Add("X-API-KEY", options.ApiKey);
             }
             else
             {
                 Client = new HttpClient();
-                Client.DefaultRequestHeaders.Add("X-API-KEY", options.Token);
+                Client.DefaultRequestHeaders.Add("X-API-KEY", options.ApiKey);
             }
 
         }
@@ -48,8 +49,15 @@ namespace MailerooClient.Email.Verification
         {
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            var requestUri = $"{Options.BaseUrl}/{request.MethodName}";
-            var httpResponse = await Client.PostAsync(requestUri, request.ToHttpContent(), cancellationToken);
+            var requestUri = $"{request.BaseUrl}/{request.MethodName}";
+            var req = new HttpRequestMessage(request.HttpMethod, requestUri)
+            {
+                Content = request.ToHttpContent()
+            };
+
+            var httpResponse = await Client.SendAsync(req, cancellationToken);
+
+            StatusCode = httpResponse.StatusCode;
 
             var response = JsonSerializer.Deserialize<TResponse>(await httpResponse.Content.ReadAsStreamAsync());
 

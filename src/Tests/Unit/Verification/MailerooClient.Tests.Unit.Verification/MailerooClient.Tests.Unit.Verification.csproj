@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Verification\MailerooClient.Email.Verification\MailerooClient.Email.Verification.csproj" />
-    <ProjectReference Include="..\..\..\..\Verification\MailerooClient.Verification\MailerooClient.Email.Verification.csproj" />
   </ItemGroup>
 
   <ItemGroup>

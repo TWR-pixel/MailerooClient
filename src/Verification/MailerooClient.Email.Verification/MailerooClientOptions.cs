@@ -1,16 +1,17 @@
-﻿namespace MailerooClient.Email.Verification
+﻿using System;
+
+namespace MailerooClient.Email.Verification
 {
     public sealed class MailerooClientOptions
     {
-        public string Token { get; set; }
-        public string BaseUrl { get; private set; } = "https://verify.maileroo.net";
+        public string ApiKey { get; set; }
 
-        public MailerooClientOptions(string token)
+        public MailerooClientOptions(string apiKey)
         {
-            if (string.IsNullOrWhiteSpace(token))
-                throw new System.ArgumentException($"\"{nameof(token)}\" cannot be empty or contain only space.", nameof(token));
+            if (string.IsNullOrWhiteSpace(apiKey))
+                throw new ArgumentException($"\"{nameof(apiKey)}\" cannot be empty or contain only space.", nameof(apiKey));
 
-            Token = token;
+            ApiKey = apiKey;
         }
     }
 }
