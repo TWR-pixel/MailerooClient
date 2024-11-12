@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text.Json.Serialization;
+using System;
 
 namespace MailerooClient.Email.Verification.Requests.Abstractions
 {
@@ -7,9 +8,9 @@ namespace MailerooClient.Email.Verification.Requests.Abstractions
     {
         public RequestBase(string methodName, HttpMethod httpMethod, string baseUrl)
         {
-            MethodName = methodName ?? throw new System.ArgumentNullException(nameof(methodName));
-            HttpMethod = httpMethod ?? throw new System.ArgumentNullException(nameof(httpMethod));
-            BaseUrl = baseUrl ?? throw new System.ArgumentNullException(nameof(baseUrl));
+            MethodName = methodName ?? throw new ArgumentNullException(nameof(methodName));
+            HttpMethod = httpMethod ?? throw new ArgumentNullException(nameof(httpMethod));
+            BaseUrl = baseUrl ?? throw new ArgumentNullException(nameof(baseUrl));
         }
 
         [JsonIgnore]

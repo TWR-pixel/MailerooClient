@@ -1,7 +1,6 @@
 ﻿using MailerooClient.Email.Verification.Exceptions;
 using MailerooClient.Email.Verification.Requests.Abstractions;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MailerooClient.Email.Verification
 {
-    public class MailerooApiClient : IDisposable, IAsyncDisposable
+    public class MailerooApiClient :  IApiClient
     {
         #region Properties and fields
         public HttpStatusCode StatusCode { get; private set; }
@@ -38,7 +37,6 @@ namespace MailerooClient.Email.Verification
                 Client = new HttpClient();
                 Client.DefaultRequestHeaders.Add("X-API-KEY", options.ApiKey);
             }
-
         }
 
         #endregion
@@ -64,15 +62,9 @@ namespace MailerooClient.Email.Verification
             return response is null ? throw new NullReferenceException() : response;
         }
 
-        public void Dispose()
-        {
-            Client.Dispose();
-        }
+        public void Dispose() => Client.Dispose();
 
-        public async ValueTask DisposeAsync()
-        {
-            await new ValueTask(Task.Run(() => Client.Dispose()));
-        }
+        public async ValueTask DisposeAsync() => await new ValueTask(Task.Run(() => Client.Dispose()));
         #endregion
 
     }

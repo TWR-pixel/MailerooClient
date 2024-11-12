@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<Title>MailerooClient.Email.Verification</Title>
-		<VersionPrefix>1.0.0.1</VersionPrefix>
+		<VersionPrefix>1.0.1</VersionPrefix>
 		<Authors>Arseniy</Authors>
 		<Copyright>Opensource</Copyright>
 		<PackageProjectUrl>https://github.com/TWR-pixel/MailerooClient.git</PackageProjectUrl>
@@ -14,7 +14,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/TWR-pixel/MailerooClient.git</RepositoryUrl>
 		<PackageTags>Email, Verification, E-mail, Mail, SMTP, HTTP, REST, API</PackageTags>
-		<Description>Client for maileroo API, contains email verification, sending</Description>
+		<Description>Client for maileroo API, contains email verification</Description>
 		<IncludeSymbols>False</IncludeSymbols>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
