@@ -28,7 +28,9 @@ namespace MailerooClient.Email.Verification
                 Client = client;
 
                 if (!client.DefaultRequestHeaders.Contains("X-API-KEY"))
-                    Client.DefaultRequestHeaders.Add("X-API-KEY", options.ApiKey);
+                    throw new XApiKeyHeaderNotFountException();
+
+                Client.DefaultRequestHeaders.Add("X-API-KEY", options.ApiKey);
             }
             else
             {
