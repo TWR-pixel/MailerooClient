@@ -8,8 +8,11 @@ public class MailerooClientTests
     [Fact]
     public async Task SendRequestTest()
     {
+        var httpClient = new HttpClient();
+        httpClient.DefaultRequestHeaders.Add("X-API-KEY", "<YOU-API-KEY>");
         var options = new MailerooClientOptions(apiKey: "<YOUR-API-KEY>");
-        var client = new MailerooApiClient(options: options);
+        var client = new MailerooApiClient(options: options, httpClient);
+
 
         var request = new CheckRequest(email: "iewofiweiofj@mafial.ru");
 
